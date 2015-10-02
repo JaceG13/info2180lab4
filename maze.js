@@ -1,6 +1,7 @@
 window.onload = function() {
     $("start").onclick = start;
     $("end").onmouseover = gameOver;
+    $("maze").onmouseleave = gameOver;
     var walls= $$("div#maze div.boundary");
     for (var i = 0; i < walls.length; i++) {
         walls[i].onmouseover = hitWall;
@@ -13,7 +14,7 @@ function hitWall() {
     hit = true;
     var walls = $$("div#maze div.boundary");
     for (var i = 0; i < walls.length; i++) {
-        walls[i].addClassName("game over");
+        walls[i].addClassName("youlose");
         gameOver();
     }
 }
@@ -22,7 +23,7 @@ function start() {
     hit = false;
     var walls = $$("div#maze div.boundary");
     for (var i = 0; i < walls.length; i++) {
-        walls[i].removeClassName("game over");
+        walls[i].removeClassName("you lose");
     }
 }
 
