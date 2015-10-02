@@ -1,7 +1,7 @@
 window.onload = function() {
     $("start").onclick = start;
     $("end").onmouseover = gameOver;
-    $("maze").onmouseleave = gameOver;
+    $("maze").onmouseleave = hitWall;
     var walls= $$("div#maze div.boundary");
     for (var i = 0; i < walls.length; i++) {
         walls[i].onmouseover = hitWall;
@@ -15,7 +15,7 @@ function hitWall() {
     var walls = $$("div#maze div.boundary");
     for (var i = 0; i < walls.length; i++) {
         walls[i].addClassName("youlose");
-        gameOver();
+        //gameOver();
     }
 }
 
