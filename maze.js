@@ -1,5 +1,5 @@
 window.onload = function() {
-    $("start").onclick = start;
+    $("start").onmouseover = start;
     $("end").onmouseover = gameOver;
     $("maze").onmouseleave = hitWall;
     var walls= $$("div#maze div.boundary");
