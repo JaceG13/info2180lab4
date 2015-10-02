@@ -1,34 +1,36 @@
-var lost = false;  // whether the user has hit a wall
-
 window.onload = function() {
-    $("start").onclick = startClick;
-    $("end").onmouseover = overEnd;
-    var boundaries = $$("div#maze div.boundary");
-    for (var i = 0; i < boundaries.length; i++) {
-        boundaries[i].onmouseover = overBoundary;
+    $("start").onclick = start;
+    $("end").onmouseover = gameOver;
+    var walls= $$("div#maze div.boundary");
+    for (var i = 0; i < walls.length; i++) {
+        walls[i].onmouseover = hitWall;
     }
 };
 
-function overBoundary() {
-    lost = true;
-    var boundaries = $$("div#maze div.boundary");
-    for (var i = 0; i < boundaries.length; i++) {
-        boundaries[i].addClassName("youlose");
+var hit = false;
+
+function hitWall() {
+    hit = true;
+    var walls = $$("div#maze div.boundary");
+    for (var i = 0; i < walls.length; i++) {
+        walls[i].addClassName("game over");
+        gameOver();
     }
 }
 
-function startClick() {
-    lost = false;
-    var boundaries = $$("div#maze div.boundary");
-    for (var i = 0; i < boundaries.length; i++) {
-        boundaries[i].removeClassName("youlose");
+function start() {
+    hit = false;
+    var walls = $$("div#maze div.boundary");
+    for (var i = 0; i < walls.length; i++) {
+        walls[i].removeClassName("game over");
     }
 }
 
-function overEnd() {
-    if(lost) {
+function gameOver() {
+    if(hit) {
         alert("You lose!");
-    } else {
+    } 
+    else {
         alert("You win!");
     }
 }
