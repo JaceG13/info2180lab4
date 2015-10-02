@@ -33,5 +33,6 @@ function gameOver() {
     } 
     else {
         alert("You win!");
+        start();
     }
 }
