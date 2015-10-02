@@ -1,7 +1,8 @@
 window.onload = function() {
     $("start").onmouseover = start;
+    $("start").onmouseclick = start;
     $("end").onmouseover = gameOver;
-    $("maze").onmouseleave = hitWall;
+    //$("maze").onmouseleave = hitWall;
     var walls= $$("div#maze div.boundary");
     for (var i = 0; i < walls.length; i++) {
         walls[i].onmouseover = hitWall;
@@ -33,6 +34,5 @@ function gameOver() {
     } 
     else {
         alert("You win!");
-        start();
     }
 }
